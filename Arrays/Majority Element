@@ -1,0 +1,19 @@
+Majority Element using morre vootinf algo
+class Solution {
+    public int majorityElement(int[] nums) {
+        
+        int cnt=0;
+        int value=0;
+        for(int i:nums)
+        { 
+        if(cnt==0)
+        { 
+         value=i;
+         cnt+=1;
+        }
+        else if(i==value) cnt+=1;
+        else cnt-=1;
+        }
+        return value;
+    }
+}
