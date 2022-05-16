@@ -1,14 +1,31 @@
+//Using dutch nation flag approach
+
 class Solution {
-    public int maxSubArray(int[] nums) {
-        int max=nums[0];
-        int sum=0;
-        for(int i=0;i<nums.length;i++)
+    public void sortColors(int[] nums) {
+        int low=0;
+        int mid=0;
+        int high=nums.length-1;
+        while(mid<=high)
         {
-            sum+=nums[i];
-            if(sum>max) max=sum;
-            if(sum<0) sum=0 ;
-           
+            if(nums[mid]==0)
+            {
+                int temp=nums[mid];
+                nums[mid]=nums[low];
+                nums[low]=temp;
+                mid+=1;
+                low+=1;
+            }
+            else if(nums[mid]==1)
+            {
+                mid+=1;
+            }
+            else
+            {
+                int temp=nums[mid];
+                nums[mid]=nums[high];
+                nums[high]=temp;                
+                high-=1;
+            }
+            
         }
-        return max;
-    }
-}
+    }}
